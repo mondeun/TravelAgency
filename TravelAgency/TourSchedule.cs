@@ -37,7 +37,7 @@ namespace TravelAgency
 
         private DateTime? SuggestTourDate(DateTime tried, int tries = 30)
         {
-            while (tries > 1)
+            while (tries > 0)
             {
                 var suggestedDate = tried.AddDays(1);
 
