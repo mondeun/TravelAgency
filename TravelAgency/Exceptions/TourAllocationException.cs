@@ -10,5 +10,9 @@ namespace TravelAgency.Exceptions
         {
             SuggestDate = suggestedDate;
         }
+
+        public TourAllocationException(string message) : base(message)
+        {
+        }
     }
 }

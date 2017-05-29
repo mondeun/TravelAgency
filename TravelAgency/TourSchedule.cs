@@ -5,7 +5,7 @@ using TravelAgency.Exceptions;
 
 namespace TravelAgency
 {
-    public class TourSchedule
+    public class TourSchedule : ITourSchedule
     {
         private readonly List<Tour> _tours;
 
