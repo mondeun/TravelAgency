@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Booking.cs" />
+    <Compile Include="Exceptions\BookingException.cs" />
     <Compile Include="BookingSystem.cs" />
     <Compile Include="Exceptions\InvalidSeatsException.cs" />
     <Compile Include="ITourSchedule.cs" />

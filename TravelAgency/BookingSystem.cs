@@ -36,5 +36,18 @@ namespace TravelAgency
             return _bookings.Where(x => x.Passenger.FirstName == passenger.FirstName &&
                                         x.Passenger.LastName == passenger.LastName).ToList();
         }
+
+        public void RemoveBooking(string tourName, DateTime date, Passenger passenger)
+        {
+            var normalizedDate = date.Date;
+
+            var booking = _bookings.Find(x => x.Tour.Name.Equals(tourName) && 
+                                              x.Tour.Date == normalizedDate &&
+                                              x.Passenger.ToString() == passenger.ToString());
+            if (booking == null)
+                throw new BookingException("Booking does not exist");
+
+            _bookings.Remove(booking);
+        }
     }
 }

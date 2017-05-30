@@ -61,5 +61,26 @@ namespace TravelAgencyTests
                 _sut.CreateBooking("a safari", new DateTime(2013, 1, 1), new Passenger())
             );
         }
+
+        [Test]
+        public void CanRemoveBooking()
+        {
+            _tourSchedule.Tours = new List<Tour>
+            {
+                new Tour("a safari", new DateTime(2013, 1, 1), 1)
+            };
+            var passenger = new Passenger
+            {
+                FirstName = "John",
+                LastName = "Doe"
+            };
+
+            _sut.CreateBooking("a safari", new DateTime(2013, 1, 1), passenger);
+            _sut.RemoveBooking("a safari", new DateTime(2013, 1, 1), passenger);
+            var bookings = _sut.GetBookingsFor(passenger);
+
+            Assert.AreEqual(0, bookings.Count);
+            Assert.AreEqual(1, _tourSchedule.TimesGetToursForIsCalled.Count);
+        }
     }
 }
